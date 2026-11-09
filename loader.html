@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing...</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: rgba(10, 10, 15, 0.95);
+            color: #00f3ff;
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 12px;
+            box-sizing: border-box;
+        }
+
+        .loader-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hex-loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #00f3ff;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: pulse 1.5s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+        }
+
+        .hex-inner {
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            width: 70%;
+            height: 70%;
+            background: rgba(0, 243, 255, 0.2);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: spin 2s linear infinite;
+        }
+
+        .status-text {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: blink 1s step-end infinite;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader-container">
+        <div class="hex-loader"></div>
+        <div class="hex-inner"></div>
+    </div>
+    <div class="status-text">PROCESSING AI...</div>
+</body>
+
+</html>
