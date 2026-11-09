@@ -26,7 +26,6 @@ dist-ssr
 release/
 dist-electron/
 dist-chat/
-website/*.exe
 
 .env
 .venv/
