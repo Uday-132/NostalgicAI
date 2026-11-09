@@ -3,7 +3,9 @@
   "appId": "com.nostalgic.ai",
   "asar": true,
   "asarUnpack": [
-    "**/*.vbs"
+    "**/*.vbs",
+    "**/*.py",
+    "**/*.ps1"
   ],
   "productName": "Nostalgic AI",
   "directories": {
@@ -12,7 +14,10 @@
   "files": [
     "dist",
     "dist-electron",
-    "public"
+    "public",
+    "electron/*.py",
+    "electron/*.ps1",
+    "electron/*.vbs"
   ],
   "mac": {
     "target": [

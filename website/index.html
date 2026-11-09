@@ -4,113 +4,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nostalgic AI - The Future was Yesterday</title>
+    <title>Nostalgic AI - The Future of Desktop AI & 100% Accurate PDF Tools</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <div class="ambient-glow cyan"></div>
+    <div class="ambient-glow pink"></div>
+
     <div class="container">
+        <!-- Top Nav -->
         <header>
-            <div class="logo">NOSTALGIC AI</div>
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">NOSTALGIC <span class="accent-cyan">AI</span></span>
+                <span class="badge-pill">v1.0.0</span>
+            </div>
             <nav>
-                <a href="#features" class="btn btn-secondary" style="border:none; box-shadow:none;">Features</a>
-                <a href="#versions" class="btn">Download</a>
+                <a href="#shortcuts" class="nav-link">Shortcuts</a>
+                <a href="#pdf-suite" class="nav-link">PDF Suite</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#download" class="btn btn-primary glow-cyan">
+                    <span>Download App</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
             </nav>
         </header>
 
+        <!-- Hero Section -->
         <section class="hero">
-            <h1 class="glitch-text" data-text="NOSTALGIC AI">NOSTALGIC AI</h1>
-            <p class="tagline">THE FUTURE WAS YESTERDAY</p>
-            <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--color-text-dim);">
-                Experience the power of modern AI wrapped in a retro-futuristic interface.
-                Prompt, Code, Write, and Chat with style.
+            <div class="hero-chip">
+                <span class="pulsing-dot"></span>
+                <span>GLOBAL HOTKEYS + ILovePDF-GRADE PRECISION</span>
+            </div>
+            <h1 class="hero-title">
+                Supercharge Your Workflow<br>
+                <span class="gradient-text">Anywhere on Windows.</span>
+            </h1>
+            <p class="hero-subtext">
+                Highlight text or point your cursor at any file, trigger instant global shortcuts, and let AI rewrite code, enhance prompts, or convert PDFs with 100% layout fidelity.
             </p>
-            <a href="#versions" class="btn">GET THE APP</a>
-        </section>
-
-        <section id="features" class="features">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3 class="feature-title">Prompt Engineer</h3>
-                <p class="feature-desc">Optimize your prompts for maximum AI performance.</p>
+            <div class="hero-actions">
+                <a href="NostalgicAI-Setup.exe" class="btn btn-hero glow-cyan" download>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <span>Download for Windows (x64)</span>
+                    <span class="tag-sub">v1.0.0 • Free • NSIS Installer</span>
+                </a>
+                <a href="#shortcuts" class="btn btn-secondary">
+                    <span>View Shortcut Cheatsheet</span>
+                </a>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">📝</div>
-                <h3 class="feature-title">Text Editor</h3>
-                <p class="feature-desc">Enhance grammar and flow with a single click.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💻</div>
-                <h3 class="feature-title">Code Rewriter</h3>
-                <p class="feature-desc">Clean, efficient code generation and refactoring.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎓</div>
-                <h3 class="feature-title">Explain It</h3>
-                <p class="feature-desc">Complex concepts broken down into simple terms.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💬</div>
-                <h3 class="feature-title">Retro Chat</h3>
-                <p class="feature-desc">Chat with Llama 3.3 in a fully immersive neon interface.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-num">100%</span>
+                    <span class="stat-label">Layout Preservation</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-num">7+</span>
+                    <span class="stat-label">Instant Hotkeys</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-num">0ms</span>
+                    <span class="stat-label">Context Switch</span>
+                </div>
             </div>
         </section>
 
-        <section id="versions" class="versions-section">
-            <h2 class="section-title">Version History</h2>
-            <table class="versions-table">
-                <thead>
-                    <tr>
-                        <th>Version</th>
-                        <th>Release Date</th>
-                        <th>Changes</th>
-                        <th>Download</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <span class="version-tag">v1.0.0</span>
-                        </td>
-                        <td>2025-12-07</td>
-                        <td>
-                            <ul style="list-style: none; color: var(--color-text-dim); font-size: 0.85rem;">
-                                <li>+ Integrated Chat Bot</li>
-                                <li>+ Retro/Neon Theme</li>
-                                <li>+ Llama 3.3 Support</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <a href="NostalgicAI-Setup.exe" class="btn btn-secondary"
-                                style="padding: 0.5rem 1rem; font-size: 0.8rem;" download>Download .exe</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="version-tag"
-                                style="border-color: var(--color-text-dim); color: var(--color-text-dim);">v0.9.0</span>
-                        </td>
-                        <td>2025-12-01</td>
-                        <td>
-                            <ul style="list-style: none; color: var(--color-text-dim); font-size: 0.85rem;">
-                                <li>+ Initial Beta</li>
-                                <li>+ Basic Tools</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-secondary"
-                                style="padding: 0.5rem 1rem; font-size: 0.8rem; opacity: 0.5; pointer-events: none;">Archived</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- SHORTCUTS CHEATSHEET -->
+        <section id="shortcuts" class="section-block">
+            <div class="section-header">
+                <span class="section-eyebrow">GLOBAL SYSTEM HOTKEYS</span>
+                <h2 class="section-heading">Work at the Speed of Thought</h2>
+                <p class="section-sub">Press these shortcuts in ANY Windows app — browser, IDE, Word, or Explorer — to instantly process selected text or files.</p>
+            </div>
+
+            <div class="shortcuts-grid">
+                <!-- Shortcut Card 1 -->
+                <div class="shortcut-card primary-cyan">
+                    <div class="shortcut-header">
+                        <span class="shortcut-action">Prompt Engineering</span>
+                        <span class="badge-feature">AI Model</span>
+                    </div>
+                    <div class="keys-display">
+                        <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd>
+                    </div>
+                    <p class="shortcut-desc">Optimizes any drafted prompt with chain-of-thought, expert role-framing, and constraints.</p>
+                </div>
+
+                <!-- Shortcut Card 2 -->
+                <div class="shortcut-card primary-pink">
+                    <div class="shortcut-header">
+                        <span class="shortcut-action">Rewrite & Optimize Code</span>
+                        <span class="badge-feature">Developer</span>
+                    </div>
+                    <div class="keys-display">
+                        <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>D</kbd>
+                    </div>
+                    <p class="shortcut-desc">Select messy code anywhere, refactor instantly, add error boundaries, and boost efficiency.</p>
+                </div>
+
+                <!-- Shortcut Card 3 -->
+                <div class="shortcut-card primary-cyan">
+                    <div class="shortcut-header">
+                        <span class="shortcut-action">Enhance Text & Polish</span>
+                        <span class="badge-feature">Writing</span>
+                    </div>
+                    <div class="keys-display">
+                        <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>E</kbd>
+                    </div>
+                    <p class="shortcut-desc">Polishes grammar, tone, clarity, and readability with single-press contextual enhancement.</p>
+                </div>
+
+                <!-- Shortcut Card 4 -->
+                <div class="shortcut-card primary-pink">
+                    <div class="shortcut-header">
+                        <span class="shortcut-action">Explain Complex Text</span>
+                        <span class="badge-feature">Learning</span>
+                    </div>
+                    <div class="keys-display">
+                        <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>X</kbd>
+                    </div>
+                    <p class="shortcut-desc">Breaks down intricate algorithms, jargon, or dense legal text into crystal-clear insights.</p>
+                </div>
+
+                <!-- Shortcut Card 5 -->
+                <div class="shortcut-card featured-glow">
+                    <div class="shortcut-header">
+                        <span class="shortcut-action">Cursor-Hover File Converter (Radial Menu)</span>
+                        <span class="badge-feature active">100% Accuracy</span>
+                    </div>
+                    <div class="keys-display">
+                        <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>C</kbd>
+                        <span class="or-separator">OR</span>
+                        <kbd>Ctrl</kbd> + <span class="mouse-badge">Left Click</span>
+                    </div>
+                    <p class="shortcut-desc">Hover over any PDF or document in Windows Explorer. The modern Radial Menu spawns right under your mouse pointer with zero file selection errors.</p>
+                </div>
+
+                <!-- Shortcut Card 6 -->
+                <div class="shortcut-card primary-cyan">
+                    <div class="shortcut-header">
+                        <span class="shortcut-action">Quick Chat / HUD Toggle</span>
+                        <span class="badge-feature">Chat Bot</span>
+                    </div>
+                    <div class="keys-display">
+                        <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd>
+                    </div>
+                    <p class="shortcut-desc">Summons the floating neon Chat Bot HUD powered by high-speed Groq AI models.</p>
+                </div>
+            </div>
         </section>
 
-        <footer style="text-align: center; padding: 4rem 0; color: var(--color-text-dim); font-size: 0.8rem;">
-            <p>&copy; 2025 Nostalgic AI. Built with Electron & React.</p>
+        <!-- PDF SUITE HIGHLIGHT -->
+        <section id="pdf-suite" class="section-block">
+            <div class="section-header">
+                <span class="section-eyebrow">HIGH-FIDELITY DOCUMENT ENGINE</span>
+                <h2 class="section-heading">iLovePDF-Grade Conversions — 100% Offline</h2>
+                <p class="section-sub">All conversions run locally with high-performance Python & COM engines. Converted files save directly alongside the original file.</p>
+            </div>
+
+            <div class="pdf-categories">
+                <!-- Category 1 -->
+                <div class="pdf-category-card">
+                    <div class="cat-header">
+                        <div class="cat-icon">📑</div>
+                        <h3>CONVERT FROM PDF</h3>
+                    </div>
+                    <ul class="cat-list">
+                        <li>
+                            <span class="bullet-dot cyan"></span>
+                            <strong>PDF to WORD (.docx)</strong>
+                            <span class="tag-pill">Multi-core lattice engine</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot cyan"></span>
+                            <strong>PDF to POWERPOINT (.pptx)</strong>
+                            <span class="tag-pill">300 DPI layout preserving</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot cyan"></span>
+                            <strong>PDF to EXCEL (.xlsx)</strong>
+                            <span class="tag-pill">Clean grid & formula ready</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot cyan"></span>
+                            <strong>PDF to JPG</strong>
+                            <span class="tag-pill">Ultra-HD 300 DPI render</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot cyan"></span>
+                            <strong>PDF to PDF/A</strong>
+                            <span class="tag-pill">Archival ISO compliant</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="pdf-category-card">
+                    <div class="cat-header">
+                        <div class="cat-icon">🔄</div>
+                        <h3>CONVERT TO PDF</h3>
+                    </div>
+                    <ul class="cat-list">
+                        <li>
+                            <span class="bullet-dot pink"></span>
+                            <strong>WORD to PDF</strong>
+                            <span class="tag-pill">Native Office COM</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot pink"></span>
+                            <strong>POWERPOINT to PDF</strong>
+                            <span class="tag-pill">Pixel-perfect slides</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot pink"></span>
+                            <strong>EXCEL to PDF</strong>
+                            <span class="tag-pill">Fit to page width</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot pink"></span>
+                            <strong>JPG / PNG to PDF</strong>
+                            <span class="tag-pill">Lossless multi-page pack</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot pink"></span>
+                            <strong>HTML to PDF</strong>
+                            <span class="tag-pill">Full styling capture</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="pdf-category-card">
+                    <div class="cat-header">
+                        <div class="cat-icon">✂️</div>
+                        <h3>ORGANIZE & OPTIMIZE</h3>
+                    </div>
+                    <ul class="cat-list">
+                        <li>
+                            <span class="bullet-dot cyan"></span>
+                            <strong>Split PDF</strong>
+                            <span class="tag-pill">Extract all pages instantly</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot cyan"></span>
+                            <strong>Merge PDF</strong>
+                            <span class="tag-pill">Combine seamlessly</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot cyan"></span>
+                            <strong>Compress PDF</strong>
+                            <span class="tag-pill">Up to 70% smaller file size</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot cyan"></span>
+                            <strong>Fast Hover Detection</strong>
+                            <span class="tag-pill">Real-time cursor hooking</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- DOWNLOAD & VERSION HISTORY -->
+        <section id="download" class="section-block">
+            <div class="download-box">
+                <div class="download-content">
+                    <span class="badge-pill">LATEST RELEASE</span>
+                    <h2>Ready to Experience Nostalgic AI?</h2>
+                    <p>Includes the Studio HUD, Radial Context Menu, all 7 system shortcuts, and high-fidelity converter engine.</p>
+                    <div class="download-specs">
+                        <span>✓ Windows 10 / 11 (64-bit)</span>
+                        <span>✓ Includes Python & Native COM bridges</span>
+                        <span>✓ Local & Private</span>
+                    </div>
+                </div>
+                <div class="download-cta">
+                    <a href="NostalgicAI-Setup.exe" class="btn btn-hero glow-cyan" download>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span>Download Installer (.exe)</span>
+                    </a>
+                    <span class="file-size-note">File size: ~156 MB • NostalgicAI-Setup.exe</span>
+                </div>
+            </div>
+
+            <!-- Version table -->
+            <div class="versions-wrapper">
+                <h3 class="versions-title">Release Notes</h3>
+                <div class="version-row current">
+                    <div class="v-meta">
+                        <span class="v-tag">v1.0.0</span>
+                        <span class="v-status">Latest</span>
+                        <span class="v-date">Current</span>
+                    </div>
+                    <div class="v-notes">
+                        <h4>Full High-Precision Release</h4>
+                        <ul>
+                            <li><strong>100% Accuracy Engine:</strong> Implemented multi-processing stream & lattice table extraction for PDF-to-Word conversions.</li>
+                            <li><strong>Fixed Cursor File Detection:</strong> Overhauled mouse hook to capture the actual hovered file dynamically without desktop caching.</li>
+                            <li><strong>7-Option Radial Menu:</strong> Converted PDF to Word, PowerPoint, Excel, JPG, Split, Compress, and PDF/A right at your cursor.</li>
+                            <li><strong>Fixed Shortcuts & API Routing:</strong> Seamless fallback keyboard shortcuts and upgraded Groq model routing.</li>
+                        </ul>
+                    </div>
+                    <div class="v-action">
+                        <a href="NostalgicAI-Setup.exe" class="btn-sm" download>Download</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-left">
+                <span class="footer-logo">NOSTALGIC AI</span>
+                <p>Modern AI productivity meets retro-futuristic elegance.</p>
+            </div>
+            <div class="footer-right">
+                <p>&copy; 2026 Nostalgic AI. Built with Electron, React, Vite & Python.</p>
+                <div class="footer-links">
+                    <a href="#shortcuts">Shortcuts</a>
+                    <a href="#pdf-suite">PDF Suite</a>
+                    <a href="https://github.com/Uday-132/NostalgicAI.git" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
         </footer>
     </div>
 </body>
-
 </html>

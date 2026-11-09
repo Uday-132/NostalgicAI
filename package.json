@@ -1,8 +1,13 @@
 {
   "name": "nostalgic-ai",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "NostalgicAI - AI-powered productivity desktop application",
+  "author": {
+    "name": "Uday Gaddam",
+    "email": "uday@nostalgicai.dev"
+  },
+  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "dev:chat": "vite -c vite.chat.config.ts",
