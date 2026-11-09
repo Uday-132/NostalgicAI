@@ -88,15 +88,20 @@ export default function App() {
           try {
             const res = await processAction(targetInput, action as ActionType)
             setStudioOutput(res.text)
-            if (action !== 'explain-text' && text) {
+            if (text) {
               window.ipcRenderer.send('replace-selection', res.text)
             }
           } catch (e: any) {
             setStudioOutput(`Error: ${e.message}`)
+            window.ipcRenderer.send('hide-loading-window')
           } finally {
             setIsStudioProcessing(false)
           }
+        } else {
+          window.ipcRenderer.send('hide-loading-window')
         }
+      } else {
+        window.ipcRenderer.send('hide-loading-window')
       }
     })
 

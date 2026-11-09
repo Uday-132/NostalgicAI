@@ -433,6 +433,7 @@ if (!gotTheLock) {
       globalShortcut.unregisterAll()
       clipboard.clear()
 
+      // Give Windows OS time to process key release before simulating copy
       setTimeout(async () => {
         try {
           await simulateCopy()
@@ -445,39 +446,27 @@ if (!gotTheLock) {
 
             if (text && text.trim().length > 0) {
               clearInterval(checkClipboard)
-              console.log(`[Main] Captured text (${text.length} chars) for ${action}`)
+              console.log(`[Main] Captured fresh selected text (${text.length} chars) for ${action}`)
 
               if (win) {
-                win.show()
-                win.focus()
+                // Keep main window hidden during in-place replacement
                 win.webContents.send('trigger-action', action, text)
               }
 
-              if (loadingWin) loadingWin.hide()
               registerAllShortcuts()
             } else if (attempts >= maxAttempts) {
               clearInterval(checkClipboard)
-              console.log('[Main] No text selected outside; opening Studio HUD')
-              if (win) {
-                win.show()
-                win.focus()
-                win.webContents.send('trigger-action', action, '')
-              }
+              console.log('[Main] No text captured from selection')
               if (loadingWin) loadingWin.hide()
               registerAllShortcuts()
             }
           }, 80)
         } catch (err) {
           console.error('[Main] Copy simulation error:', err)
-          if (win) {
-            win.show()
-            win.focus()
-            win.webContents.send('trigger-action', action, '')
-          }
           if (loadingWin) loadingWin.hide()
           registerAllShortcuts()
         }
-      }, 150)
+      }, 250)
     }
 
     const registerAllShortcuts = () => {
@@ -676,51 +665,73 @@ app.on('window-all-closed', () => {
 
 function simulateCopy() {
   return new Promise<void>((resolve, reject) => {
-    let vbsPath = path.join(process.env.VITE_PUBLIC, 'copy.vbs')
-    console.log(`[Main] Copy script path (before packaging check): ${vbsPath}`)
-
+    // 1. Try high-reliability PowerShell keybd_event script first
+    let psPath = path.join(process.env.APP_ROOT, 'electron', 'send-keys.ps1')
     if (app.isPackaged) {
-      vbsPath = vbsPath.replace('app.asar', 'app.asar.unpacked')
-      console.log(`[Main] Copy script path (after packaging check): ${vbsPath}`)
+      psPath = psPath.replace('app.asar', 'app.asar.unpacked')
     }
 
-    console.log(`[Main] Attempting to run copy script: ${vbsPath}`)
+    if (fs.existsSync(psPath)) {
+      const child = spawn('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', psPath, '-action', 'copy'])
+      child.on('close', (code) => {
+        if (code === 0) return resolve()
+        fallbackVbs()
+      })
+      child.on('error', () => fallbackVbs())
+      setTimeout(() => {
+        try { child.kill() } catch (e) {}
+        fallbackVbs()
+      }, 1500)
+      return
+    }
 
-    const child = spawn('cscript', ['//Nologo', vbsPath])
-    child.on('error', (err) => {
-      console.error(`[Main] Failed to start copy script: ${err.message}`)
-      reject(err)
-    })
-    child.on('close', (code) => {
-      console.log(`[Main] Copy script exited with code: ${code}`)
-      if (code === 0) resolve()
-      else reject(new Error(`Copy script exited with code ${code}`))
-    })
-    setTimeout(() => {
-      child.kill()
-      reject(new Error('Copy simulation timed out'))
-    }, 2000)
+    fallbackVbs()
+
+    function fallbackVbs() {
+      let vbsPath = path.join(process.env.VITE_PUBLIC, 'copy.vbs')
+      if (app.isPackaged) {
+        vbsPath = vbsPath.replace('app.asar', 'app.asar.unpacked')
+      }
+
+      const vbsChild = spawn('cscript', ['//Nologo', vbsPath])
+      vbsChild.on('error', (err) => reject(err))
+      vbsChild.on('close', (code) => {
+        if (code === 0) resolve()
+        else reject(new Error(`Copy script exited with code ${code}`))
+      })
+      setTimeout(() => {
+        try { vbsChild.kill() } catch (e) {}
+        reject(new Error('Copy simulation timed out'))
+      }, 2000)
+    }
   })
 }
 
 function simulatePaste() {
-  let vbsPath = path.join(process.env.VITE_PUBLIC, 'paste.vbs')
-  console.log(`[Main] Paste script path (before packaging check): ${vbsPath}`)
-
+  let psPath = path.join(process.env.APP_ROOT, 'electron', 'send-keys.ps1')
   if (app.isPackaged) {
-    vbsPath = vbsPath.replace('app.asar', 'app.asar.unpacked')
-    console.log(`[Main] Paste script path (after packaging check): ${vbsPath}`)
+    psPath = psPath.replace('app.asar', 'app.asar.unpacked')
   }
 
-  console.log(`[Main] Attempting to run paste script: ${vbsPath}`)
+  if (fs.existsSync(psPath)) {
+    const child = spawn('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', psPath, '-action', 'paste'])
+    child.on('error', () => fallbackVbs())
+    return
+  }
 
-  const child = spawn('cscript', ['//Nologo', vbsPath])
-  child.on('error', (err) => {
-    console.error(`[Main] Failed to start paste script: ${err.message}`)
-  })
-  child.on('close', (code) => {
-    console.log(`[Main] Paste script exited with code: ${code}`)
-  })
+  fallbackVbs()
+
+  function fallbackVbs() {
+    let vbsPath = path.join(process.env.VITE_PUBLIC, 'paste.vbs')
+    if (app.isPackaged) {
+      vbsPath = vbsPath.replace('app.asar', 'app.asar.unpacked')
+    }
+
+    const child = spawn('cscript', ['//Nologo', vbsPath])
+    child.on('error', (err) => {
+      console.error(`[Main] Failed to start paste script: ${err.message}`)
+    })
+  }
 }
 
 // Add cleanup function for uninstallation
