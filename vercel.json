@@ -1,10 +1,4 @@
 {
   "version": 2,
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/website/$1"
-    }
-  ]
+  "outputDirectory": "website"
 }
-
