@@ -188,7 +188,7 @@ function createWindow() {
     show: true,
     icon: path.join(process.env.VITE_PUBLIC, 'icon.png'),
     webPreferences: {
-      preload: path.join(__dirname, 'preload.mjs'),
+      preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
     },
@@ -242,7 +242,7 @@ function createChatWindow() {
     show: false, // Start hidden
     icon: path.join(process.env.VITE_PUBLIC, 'icon.png'),
     webPreferences: {
-      preload: path.join(__dirname, 'preload.mjs'),
+      preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
     },
@@ -314,7 +314,7 @@ function createRadialWindow() {
     hasShadow: false,
     show: false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.mjs'),
+      preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
     },
